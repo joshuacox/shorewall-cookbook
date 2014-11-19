@@ -9,11 +9,11 @@ Shorewall is a rather comprehensive and easy-to-use abstraction layer on top of 
 
 ##Requirements
 
-~~This cookbook currently uses the `yumrepo` module to install the EPEL repository, and is therefore CentOS-specific.~~   This should now work on debian as well
+~~This cookbook currently uses the `yumrepo` module to install the EPEL repository, and is therefore CentOS-specific.~~   This should now work on Debian based distros as well
 
 The library functions anticipate a network topology in which a cluster of servers have interconnects over a "private" network which is sufficiently insecure that a firewall is appropriate to control connections from that subnet. (This particularly applies to services such as memcached which expect security to handled at a different layer). However, the module is expected to remain useful in other scenarios as well.
 
-Capabilities
+##Capabilities
 
 Creates pretty Shorewall configuration files intended to be aesthetically comparable to hand-written ones.
 
@@ -49,7 +49,7 @@ ACCEPT          lan:192.168.123.10 \
 
 Note how line continuations are added as necessary to keep column alignment in place.
 
-Usage
+##Usage
 
 Typical usage from another module is expected to look like the following:
 ```
