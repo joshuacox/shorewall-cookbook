@@ -3,17 +3,20 @@ shorewall-cookbook
 
 A fully featured Shorewall cookbook based on the original in the Chef Supermarket by Charles-dyfis-net for CentOS, but I needed it to work on Debian so here we are
 
-##Description
+Description
+===========
 
 Shorewall is a rather comprehensive and easy-to-use abstraction layer on top of iptables.
 
-##Requirements
+Requirements
+============
 
 ~~This cookbook currently uses the `yumrepo` module to install the EPEL repository, and is therefore CentOS-specific.~~   This should now work on Debian based distros as well
 
 The library functions anticipate a network topology in which a cluster of servers have interconnects over a "private" network which is sufficiently insecure that a firewall is appropriate to control connections from that subnet. (This particularly applies to services such as memcached which expect security to handled at a different layer). However, the module is expected to remain useful in other scenarios as well.
 
-##Capabilities
+Capabilities
+============
 
 Creates pretty Shorewall configuration files intended to be aesthetically comparable to hand-written ones.
 
@@ -49,7 +52,8 @@ ACCEPT          lan:192.168.123.10 \
 
 Note how line continuations are added as necessary to keep column alignment in place.
 
-##Usage
+Usage
+=====
 
 Typical usage from another module is expected to look like the following:
 ```
@@ -87,7 +91,8 @@ node.override[:shorewall][:rules] << {
 ```
 Again: Only address matching one of the networks defined in `shorewall/private_ranges` will be added by the `add_shorewall_rules` helper.
 
-##Attributes
+Attributes
+==========
 
 Important: Many of these are defined at the `override` level rather than the `default` level. This is done such that `node[:shorewall][:zones] << { ... }` works as you'd expect.
 
@@ -100,12 +105,13 @@ Important: Many of these are defined at the `override` level rather than the `de
 
 For more details, see the attributes/default.rb file.
 
-##Limitations
+Limitations
+===========
 
 Patches to address any of these items would be gratefully accepted.
 
-Includes a hardcoded, non-configurable versions of the `shorewall.conf` file.
-Searches retrieve far more information (entire nodes) than is actually needed.
-Support for non-CentOS targets should be both worthwhile and straightforward.
-Not all of shorewall's configuration is mapped.
-No thought has been given to IPv6 support.
+* Includes a hardcoded, non-configurable versions of the `shorewall.conf` file.
+* Searches retrieve far more information (entire nodes) than is actually needed.
+* Support for non-CentOS targets should be both worthwhile and straightforward.
+* Not all of shorewall's configuration is mapped.
+* No thought has been given to IPv6 support.
